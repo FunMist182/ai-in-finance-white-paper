@@ -1,0 +1,23 @@
+{
+  "tesco": {
+    "saved_csv_reproduced": true,
+    "rows": 6
+  },
+  "carillion": {
+    "saved_csv_reproduced": true,
+    "rows": 7
+  },
+  "lseg": {
+    "builder_completed": true,
+    "formula_cached_values_matching_supplied_workbook": 277,
+    "spreadsheet_engine_recalculation_performed": false,
+    "independent_model_validation_performed": false
+  },
+  "versions": {
+    "pandas": "3.0.1",
+    "openpyxl": "3.1.5",
+    "matplotlib": "3.11.2",
+    "XlsxWriter": "3.2.9"
+  },
+  "scope": "Packaging check of supplied original scripts, run in a separate temporary copy. Does not reproduce the historical checks cited in the paper."
+}
