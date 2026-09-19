@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Carillion, 2010-2016: adapted from David's Tesco code.py.
+Carillion, 2010-2016:
 Requires pandas and matplotlib. Run this file to display the two charts and
 save the PNGs and CSV alongside it. The data are embedded so no Excel file
 is needed. All financial amounts are GBP millions; years end 31 December.
