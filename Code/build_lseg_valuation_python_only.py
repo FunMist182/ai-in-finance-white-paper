@@ -1,6 +1,6 @@
-"""Build the LSEG FY2025 corporate valuation model using Python only.
+"""Build the LSEG FY2025 corporate valuation model using Python.
 
-Dependency: XlsxWriter (bundled with the Codex Python runtime).
+Dependency: XlsxWriter
 Run: python build_lseg_valuation_python_only.py
 """
 from __future__ import annotations
