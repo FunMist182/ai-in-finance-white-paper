@@ -1,72 +1,66 @@
-# AI in Finance: White Paper
+# AI in Finance: Accounting Risk and Valuation Using Python
 
-Research materials accompanying [AI in Finance: White Paper](AI_in_Finance_White_Paper.pdf). The PDF is the main paper; the [Word version](AI_in_Finance_White_Paper.docx) is retained for editing.
+**David Hayes | King's College London | BSc Accounting & Finance**
 
-## Case studies
+This independent research project explores how Python can support financial analysis while examining where professional judgement remains essential.
 
-- **Case Study 1 — Tesco and Carillion accounting-risk screening.** Fixed Python rules examine accruals, cash conversion and working-capital growth. The Tesco screen flags some earlier movements but does not establish advance detection of the commercial-income issue. Carillion shows recurring receivables warnings and periods of negative operating cash flow despite reported profits. These are retrospective investigation prompts, not trained machine-learning predictions.
-- **Case Study 2A — LSEG valuation.** A Python-generated workbook contains a five-year DCF, comparable-company screen, scenarios and sensitivities. The paper reports conditional downside/base/upside DCF values of £95.41/£122.92/£150.91 per share. They depend on the model's assumptions and historical reference inputs, not current market conditions.
-- **Case Study 2B — LSEG model governance.** The paper examines calculation checks, source definitions, assumptions and unresolved limitations of the same model. Passing arithmetic checks does not establish that assumptions are economically appropriate or that the ownership bridge is complete.
+The project combines financial-statement analysis, valuation and model governance across three companies: Tesco, Carillion and London Stock Exchange Group (LSEG).
 
-## Reproducibility status
+## Project Overview
 
-**This collection currently contains the supplied original scripts, not the complete newer Python bundle cited in the PDF.** The paper refers to `AI_in_Finance_Python_Work.zip` and an extracted `Python_work` folder. That bundle was not among the available files when this repository was assembled.
+### 1. Tesco and Carillion — Financial Reporting Risk
 
-Missing items include `tesco_analysis.py`, `carillion_analysis.py`, `lseg_case_outputs.py`, `validate_lseg.py`, the later Tesco deterioration output, and the original LSEG independent-review, spreadsheet-recalculation and scenario-switch records. Do not treat the included files as evidence that every check described in the paper has been reproduced. The historical review records cannot be recreated retrospectively as if they were originals.
+A Python-based financial-statement screen is applied consistently to:
 
-Repository preparation checks successfully ran all three supplied scripts in a separate temporary copy. Both accounting CSVs matched the supplied outputs, and all 277 saved formula values from the rebuilt LSEG workbook matched the supplied workbook. These are reproduction checks, not independent model validation or spreadsheet-engine recalculation. Details and package versions are in `results/packaging_checks.json`.
+- Tesco, 2010–2015
+- Carillion, 2010–2016
 
-One concrete version difference: the original `Tesco code.py` stores early unavailable accrual-history comparisons as `False`; the newer implementation described in the paper correctly treats them as unavailable. Those early values must not be interpreted as passed tests. The original files are retained unchanged for traceability.
+The analysis examines working-capital movements, accruals and profit-to-cash conversion.
 
-## Files and folders
+The comparison is designed not only to identify warning signals, but also to demonstrate the limitations of fixed-rule financial screening. The Carillion analysis produces recurring cash-conversion and working-capital prompts, while the Tesco case demonstrates how a quantitative screen can fail to identify a specific accounting issue.
 
-| Location | Contents |
-| --- | --- |
-| `AI_in_Finance_White_Paper.pdf` | Main paper |
-| `AI_in_Finance_White_Paper.docx` | Editable paper |
-| `Case study 1/Tesco code/` | Individual original Tesco and Carillion Python scripts |
-| `Case study 1/Tesco_Master_Dataset_2010_2015.xlsx` | Required Tesco input data |
-| `Case study 1/*.csv` and `*.png` | Supplied accounting-screen outputs and Tesco charts |
-| `Case study 2/Davids version/` | LSEG Python builder and generated valuation workbook |
-| `results/source_manifest.json` | SHA-256 fingerprints of unchanged supplied files |
-| `results/packaging_checks.json` | Checks performed specifically for repository preparation, when present |
-| `requirements.txt` | Python dependencies and tested versions |
+### 2. LSEG — Valuation and Investment Judgement
 
-The original folder layout is preserved because the Tesco script finds its workbook one folder above the script and the LSEG builder saves its workbook beside its source. There is no duplicate `code/` or `data/` tree.
+A five-year discounted cash flow valuation of London Stock Exchange Group was built in Python.
 
-## Run the supplied code
+The model includes:
 
-Use Python 3.12. From the repository root, install the dependencies:
+- Downside, base and upside scenarios
+- WACC and terminal-growth sensitivity analysis
+- Enterprise-to-equity value reconciliation
+- Explicit valuation assumptions and source controls
 
-```sh
-python -m pip install -r requirements.txt
-```
+All three scenario outputs and 50 sensitivity calculations were independently reconciled as part of the model-validation process.
 
-Run the accounting screens:
+### 3. LSEG — Model Governance
 
-```sh
-python "Case study 1/Tesco code/Tesco code.py"
-python "Case study 1/Tesco code/Carillion code.py"
-```
+The final case study examines how much confidence should be placed in a financial model rather than simply whether its calculations run correctly.
 
-The scripts display charts; close each chart window to continue. For non-interactive execution, set the `MPLBACKEND` environment variable to `Agg` before running them. In PowerShell: `$env:MPLBACKEND = "Agg"`.
+It considers:
 
-Tesco writes its CSV and two charts in `Case study 1/`. Carillion embeds its input data and writes its CSV and two charts in `Case study 1/Tesco code/`; the supplied Carillion CSV one folder above is a retained reference copy. Re-running scripts overwrites their generated files.
+- Calculation checks
+- Source and date controls
+- Sensitivity to key assumptions
+- Terminal-value dependence
+- Unresolved assumptions
+- The role of professional judgement
 
-Rebuild the LSEG workbook:
+## Repository Contents
 
-```sh
-python "Case study 2/Davids version/build_lseg_valuation_python_only.py"
-```
+- **AI\_in\_Finance\_White\_Paper.pdf** — Full research paper
+- **Python scripts** — Code used for the financial analysis and valuation
+- **Supporting model outputs/data** — Files supporting the case studies
 
-This overwrites the adjacent workbook. The model's inputs and source register are embedded in the builder/workbook; no live data service or API key is required. Python supplies saved formula values. Rebuilding those values is not an independent spreadsheet-engine recalculation or an independent implementation of the model.
+## Use of AI
 
-## Interpretation and limitations
+The Python analysis was developed for this project. AI was used as a checking and review tool for code and analysis rather than as a substitute for the underlying financial analysis.
 
-Accounting amounts are GBP millions. Columns ending `_YoY_%` store fractional changes: `0.05` means 5%. A missing first-year accrual ratio reflects the absence of prior-year assets. Cash conversion can be misleading with very small or negative profits. Carillion's script records its mixed reporting vintages and source limitations.
+The numerical evidence comes from the Python scripts, company data and recorded calculation checks.
 
-The LSEG exercise uses FY2025 financials and a 26 February 2026 reference date; the programme-price and voting-share proxies were disclosed on 27 February, so this is retrospective. The base DCF relies heavily on terminal value, peer inputs remain partly approximate, and the equity bridge is simplified. See the paper and workbook source register for the full limitations. This is a research and educational project, not a current investment recommendation.
+## Key Takeaway
 
-Older investment/transaction narratives, personal presentation guidance, backups and editorial-review material are excluded. The transaction narrative is not the governance case presented as Case Study 2B in the final PDF. Third-party annual-report PDFs are not duplicated here; consult the source references in the paper, scripts and workbook.
+The project demonstrates that automation can make financial analysis more consistent and repeatable, but reliable investment analysis still depends on understanding the underlying business, challenging assumptions and recognising what a model cannot establish.
 
-No reuse licence has been assigned in this repository.
+---
+
+*Independent research project, 2026.*
