@@ -1,6 +1,6 @@
 # AI in Finance: Accounting Risk and Valuation Using Python
 
-**David Hayes | King's College London | BSc Accounting & Finance**
+**David Hayes | King’s College London | BSc Accounting & Finance**
 
 This independent research project explores how Python can support financial analysis while examining where professional judgement remains essential.
 
@@ -47,9 +47,16 @@ It considers:
 
 ## Repository Contents
 
-- **AI\_in\_Finance\_White\_Paper.pdf** — Full research paper
-- **Python scripts** — Code used for the financial analysis and valuation
-- **Supporting model outputs/data** — Files supporting the case studies
+- **AI_in_Finance_White_Paper.pdf** — Full research paper and recommended starting point
+- **Code/** — Python scripts used for the financial-statement analysis and valuation work
+- **Tesco Data/** — Source data supporting the Tesco financial-reporting analysis
+- **Carillion Data/** — Source data supporting the Carillion financial-reporting analysis
+- **Results/** — Outputs generated from the analysis and valuation work
+- **requirements.txt** — Python dependencies required to reproduce the analysis
+
+## Suggested Route Through the Project
+
+For a quick review, start with the **white paper** for the conclusions and methodology, then examine **Code/** and **Results/** for the underlying analytical work and reproducibility.
 
 ## Use of AI
 
